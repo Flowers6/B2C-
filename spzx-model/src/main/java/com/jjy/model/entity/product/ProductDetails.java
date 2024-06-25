@@ -1,0 +1,12 @@
+package com.jjy.model.entity.product;
+
+import com.jjy.model.entity.base.BaseEntity;
+import lombok.Data;
+
+@Data
+public class ProductDetails extends BaseEntity {
+
+	private Long productId;
+	private String imageUrls;
+
+}
