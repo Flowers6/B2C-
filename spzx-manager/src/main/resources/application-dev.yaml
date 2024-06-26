@@ -1,0 +1,33 @@
+# 配置服务端口号
+server:
+  port: 8501
+
+#腾讯云服务器地址
+tencent:
+  address: 106.54.0.180
+
+# 配置数据库连接信息
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${tencent.address}:3306/db_spzx?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 1234
+  # Redis的相关配置
+  data:
+    redis:
+      host: ${tencent.address}
+      port: 6379
+#  password: 1234
+
+# mybatis的配置
+mybatis:
+  config-location: classpath:/mybatis-config.xml
+  mapper-locations: classpath:/mapper/*/*.xml
+
+spzx:
+  auth:
+    no-auth-urls:
+      - /admin/system/index/login
+      - /admin/system/index/generateValidateCode
