@@ -4,7 +4,7 @@ server:
 
 #腾讯云服务器地址
 tencent:
-  address: 106.54.0.180
+  address: 124.221.68.241
 
 # 配置数据库连接信息
 spring:
