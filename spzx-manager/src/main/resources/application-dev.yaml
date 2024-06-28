@@ -2,9 +2,9 @@
 server:
   port: 8501
 
-#腾讯云服务器地址
+#服务器地址
 tencent:
-  address: 124.221.68.241
+  address: 124.222.18.85
 
 # 配置数据库连接信息
 spring:
@@ -31,3 +31,8 @@ spzx:
     no-auth-urls:
       - /admin/system/index/login
       - /admin/system/index/generateValidateCode
+  minio:
+    endpointUrl: http://127.0.0.1:9000
+    accessKey: minioadmin
+    secreKey: minioadmin
+    bucketName: spzx-bucket

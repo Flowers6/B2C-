@@ -4,6 +4,8 @@ import com.github.pagehelper.PageInfo;
 import com.jjy.model.dto.system.SysRoleDto;
 import com.jjy.model.entity.system.SysRole;
 
+import java.util.Map;
+
 /**
  * @author : Flowers6
  * @version : v1.0
@@ -46,4 +48,10 @@ public interface SysRoleService {
      * @param roleId
      */
     void deleteById(Long roleId);
+
+    /**
+     * 查询所有角色
+     * @return
+     */
+    Map<String, Object> findAllRoles(Long userId);
 }

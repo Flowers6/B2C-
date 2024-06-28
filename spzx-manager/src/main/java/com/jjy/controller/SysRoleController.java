@@ -9,6 +9,10 @@ import com.jjy.service.impl.SysRoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 /**
  * @author : Flowers6
  * @version : v1.0
@@ -22,6 +26,13 @@ public class SysRoleController {
 
     @Autowired
     private SysRoleServiceImpl sysRoleService;
+
+    //查询所有角色
+    @GetMapping("/findAllRoles/{userId}")
+    public Result findAllRoles(@PathVariable("userId") Long userId) {
+        Map<String, Object> map = sysRoleService.findAllRoles(userId);
+        return Result.build(map, ResultCodeEnum.SUCCESS);
+    }
 
     @PostMapping("/findByPage/{current}/{limit}")
     public Result findByPage(@PathVariable("current") Integer current,

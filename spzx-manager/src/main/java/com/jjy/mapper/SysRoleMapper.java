@@ -46,4 +46,10 @@ public interface SysRoleMapper {
      * @param roleId
      */
     void delete(Long roleId);
+
+    /**
+     * 查询所有角色
+     * @return
+     */
+    List<SysRole> findAll();
 }

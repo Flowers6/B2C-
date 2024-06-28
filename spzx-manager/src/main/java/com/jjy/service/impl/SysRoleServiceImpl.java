@@ -3,13 +3,16 @@ package com.jjy.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jjy.mapper.SysRoleMapper;
+import com.jjy.mapper.SysRoleUserMapper;
 import com.jjy.model.dto.system.SysRoleDto;
 import com.jjy.model.entity.system.SysRole;
 import com.jjy.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : Flowers6
@@ -20,6 +23,9 @@ import java.util.List;
  */
 @Service
 public class SysRoleServiceImpl implements SysRoleService {
+
+    @Autowired
+    private SysRoleUserMapper sysRoleUserMapper;
 
     @Autowired
     private SysRoleMapper sysRoleMapper;
@@ -57,6 +63,21 @@ public class SysRoleServiceImpl implements SysRoleService {
     @Override
     public void deleteById(Long roleId) {
         sysRoleMapper.delete(roleId);
+    }
+
+    @Override
+    public Map<String, Object> findAllRoles(Long userId) {
+        //查询所有角色
+        List<SysRole> roleList = sysRoleMapper.findAll();
+
+        //根据用户id查询用户分配过的角色id列表
+        List<Long> roleIds = sysRoleUserMapper.selectRoleIdsByUserId(userId);
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("allRolesList", roleList);
+        map.put("sysUserRoles", roleIds);
+
+        return map;
     }
 
 

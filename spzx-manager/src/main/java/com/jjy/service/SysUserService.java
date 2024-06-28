@@ -1,5 +1,7 @@
 package com.jjy.service;
 
+import com.github.pagehelper.PageInfo;
+import com.jjy.model.dto.system.AssignRoleDto;
 import com.jjy.model.dto.system.LoginDto;
 import com.jjy.model.dto.system.SysUserDto;
 import com.jjy.model.entity.system.SysUser;
@@ -33,4 +35,37 @@ public interface SysUserService {
      * @param token
      */
     void logout(String token);
+
+    /**
+     * 分页查询接口
+     * @param sysUserDto
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageInfo<SysUser> findByPage(SysUserDto sysUserDto, Integer pageNum, Integer pageSize);
+
+    /**
+     * 用户添加
+     * @param sysUser
+     */
+    void saveSysUser(SysUser sysUser);
+
+    /**
+     * 用户修改
+     * @param sysUser
+     */
+    void updateSysUser(SysUser sysUser);
+
+    /**
+     * 用户删除
+     * @param userId
+     */
+    void deleteById(Long userId);
+
+    /**
+     * 用户分配角色
+     * @param assignRoleDto
+     */
+    void doAssign(AssignRoleDto assignRoleDto);
 }
