@@ -9,8 +9,10 @@ import com.jjy.model.entity.system.SysUser;
 import com.jjy.model.vo.common.Result;
 import com.jjy.model.vo.common.ResultCodeEnum;
 import com.jjy.model.vo.system.LoginVo;
+import com.jjy.model.vo.system.SysMenuVo;
 import com.jjy.model.vo.system.ValidateCodeVo;
 import com.jjy.properties.UserAuthProperties;
+import com.jjy.service.SysMenuService;
 import com.jjy.service.impl.SysUserServiceImpl;
 import com.jjy.service.impl.ValidateCodeServiceImpl;
 import com.jjy.utils.AuthContextUtil;
@@ -21,6 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author : Flowers6
@@ -40,6 +44,16 @@ public class IndexController {
 
     @Autowired
     private ValidateCodeServiceImpl validateCodeService;
+
+    @Autowired
+    private SysMenuService sysMenuService;
+
+    //查询用户可以操作菜单
+    @GetMapping("/menu")
+    public Result menu() {
+        List<SysMenuVo> list = sysMenuService.findMenuByUserId();
+        return Result.build(list, ResultCodeEnum.SUCCESS);
+    }
 
     @Operation(summary = "根据token退出登录")
     @GetMapping("/logout")
