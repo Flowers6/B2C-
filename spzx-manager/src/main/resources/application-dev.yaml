@@ -4,7 +4,7 @@ server:
 
 #服务器地址
 tencent:
-  address: 124.223.15.188
+  address: 43.143.110.189
 
 # 配置数据库连接信息
 spring:
