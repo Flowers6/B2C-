@@ -2,22 +2,26 @@ server:
   port: 8511
 
 #服务器地址
-tencent:
-  address: 43.143.110.189
+ali:
+  address: 47.103.107.73
 
 spring:
+  data:
+    redis:
+      host: ${ali.address}
+      port: 6379
   application:
     name: service-product
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: ${ali.address}:8848
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${tencent.address}:3306/db_spzx?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://${ali.address}:3306/db_spzx?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: root
+    password: 1234
 
 mybatis:
   config-location: classpath:mybatis-config.xml

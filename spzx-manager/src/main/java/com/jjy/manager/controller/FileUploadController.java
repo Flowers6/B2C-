@@ -30,6 +30,7 @@ public class FileUploadController {
         //获取上传文件
         //调用service方法上传，返回minio路径
         String url = fileUploadService.upload(file);
+        System.out.println("url = " + url);
         return Result.build(url, ResultCodeEnum.SUCCESS);
     }
 }

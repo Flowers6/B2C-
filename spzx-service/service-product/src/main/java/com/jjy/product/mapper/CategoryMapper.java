@@ -19,4 +19,10 @@ public interface CategoryMapper {
      * @return
      */
     List<Category> findOneCategory();
+
+    /**
+     * 查询所有分类
+     * @return
+     */
+    List<Category> findAll();
 }

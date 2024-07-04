@@ -17,4 +17,10 @@ public interface CategoryService {
      * @return
      */
     List<Category> findOneCategory();
+
+    /**
+     * 查询所有分类,按树形格式封装
+     * @return
+     */
+    List<Category> findCategoryTree();
 }
