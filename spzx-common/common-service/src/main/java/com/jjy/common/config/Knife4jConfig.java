@@ -18,6 +18,14 @@ import org.springframework.context.annotation.Configuration;
 public class Knife4jConfig {
 
     @Bean
+    public GroupedOpenApi userApi() {
+        return GroupedOpenApi.builder()
+                .group("user-api")
+                .pathsToMatch("/user/**")
+                .build();
+    }
+
+    @Bean
     public GroupedOpenApi adminApi() {
         return GroupedOpenApi.builder()
                 .group("admin-api")

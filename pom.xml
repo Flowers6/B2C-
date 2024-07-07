@@ -15,9 +15,6 @@
         <module>spzx-server-gateway</module>
         <module>spzx-service</module>
         <module>spzx-service-client</module>
-        <module>spzx-service/service-order</module>
-        <module>spzx-service/service-product</module>
-        <module>spzx-service/service-user</module>
     </modules>
 
     <parent>

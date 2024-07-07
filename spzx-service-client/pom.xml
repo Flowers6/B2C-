@@ -14,6 +14,8 @@
     <modules>
         <module>service-product-client</module>
         <module>service-user-client</module>
+        <module>service-cart-client</module>
+        <module>service-order-client</module>
     </modules>
 
     <properties>
@@ -21,5 +23,19 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jjy</groupId>
+            <artifactId>spzx-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>provided </scope>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -1,0 +1,17 @@
+server:
+  port: 8513
+
+ali:
+  address: 47.103.107.73
+
+spring:
+  application:
+    name: service-cart
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${ali.address}:8848
+  data:
+    redis:
+      host: ${ali.address}
+      port: 6379
